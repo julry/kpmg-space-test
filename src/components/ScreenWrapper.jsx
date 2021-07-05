@@ -24,10 +24,12 @@ const Image = styled.img`
 `;
 
 const ComponentWrapper = styled.div`
+  ${({ styles }) => styles};
   width: 100vw;
-  height: 100vh;
+ 
 
   @media screen and (min-width: 640px) {
+    overflow: hidden;
     width: 325px;
     max-height: 700px;
     height: 700px;
@@ -55,6 +57,7 @@ export function ScreenWrapper() {
     const [screenDelta, setScreenDelta] = useState(0);
     const [answers, setAnswers] = useState({});
     const [currentAttempt, setCurrentAttempt] = useState(0);
+    const [height, setHeight] = useState('100vh');
 
     // const setPrev = () => {
     //     const canSet = currentScreenIndex > 0;
@@ -90,6 +93,15 @@ export function ScreenWrapper() {
         return () => clears && clears.forEach(clear => clear());
     }, [preloadImages]);
 
+    useEffect(()=>{
+        let viewportHeight = 0;
+            viewportHeight = document.documentElement.clientHeight;
+        setHeight(viewportHeight + 'px');
+        function handleResize() {
+            setHeight(viewportHeight + 'px');
+        }
+        window.addEventListener('resize', handleResize)
+    }, [])
 
     const progressProviderValue = {
         screen,
@@ -107,7 +119,7 @@ export function ScreenWrapper() {
         <div>
             <ProgressProvider value={progressProviderValue}>
                 <Image src={iphone} />
-                <ComponentWrapper>
+                <ComponentWrapper styles={{height}}>
                     <Component />
                 </ComponentWrapper>
             </ProgressProvider>

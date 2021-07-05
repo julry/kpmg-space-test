@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {ModalInfo} from "../../shared/ModalInfo";
 import {LogoStyled} from "../../shared/LogoStyled";
+import {Background, Image} from "../../shared/Background";
+import {introBg} from "../../../constants/images";
 
 const KPMGLogo = styled(LogoStyled)`
     position: absolute;
@@ -15,6 +17,9 @@ const KPMGLogo = styled(LogoStyled)`
 `
 export const AuditIntro = () => {
     return <>
+        <Background>
+            <Image src={introBg} alt={''}/>
+        </Background>
         <KPMGLogo/>
         <ModalInfo
             text={'Ты справился со всеми испытаниями планет «Логос» и «Сториос»! Осталось\n' +

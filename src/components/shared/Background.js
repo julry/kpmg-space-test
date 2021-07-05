@@ -12,4 +12,5 @@ export const Background = styled.div`
 export const Image = styled.img`
     height: 100%;
     width: 100%;
+    object-fit: cover;
 `

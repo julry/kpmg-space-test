@@ -10,9 +10,12 @@ import {StoriosIntroQuestion} from "./components/screens/Storios/StoriosIntroQue
 import {StoriosQuestion1} from "./components/screens/Storios/StoriosQuestion1";
 import {StoriosQuestion2} from "./components/screens/Storios/StoriosQuestion2";
 import {StoriosQuestion3} from "./components/screens/Storios/StoriosQuestion3";
-import {Final} from "./components/screens/Final";
 import {AuditIntro} from "./components/screens/Audit/AuditIntro";
-import {logosBg, logosBgQuestions, storiosBg, storiosBgQuestions} from "./constants/images";
+import {AuditTask} from "./components/screens/Audit/AuditTask";
+import {Final} from "./components/screens/Final";
+
+import {auditBg, introBg, logosBg, logosBgQuestions, storiosBg, storiosBgQuestions} from "./constants/images";
+
 
 export const ScreenType = {
   Intro: 'intro',
@@ -31,12 +34,13 @@ export const screens = [
     name: 'intro',
     component: Intro,
     type: ScreenType.Intro,
-    preloadImages: [],
+    preloadImages: [introBg],
   },{
     name: 'intro-2',
     component: Intro2,
     type: ScreenType.Intro,
     preloadImages: [logosBg],
+    image: [introBg]
   },
   {
     name: 'logos-intro',
@@ -105,15 +109,21 @@ export const screens = [
     name: 'storios-question-3',
     component: StoriosQuestion3,
     type: ScreenType.Question,
-    preloadImages: [storiosBgQuestions],
+    preloadImages: [introBg],
     image: [storiosBgQuestions],
   },
   {
     name: 'audit-intro',
     component: AuditIntro,
     type: ScreenType.PlanetIntro,
-    preloadImages: [],
-    image: [],
+    preloadImages: [auditBg],
+    image: [introBg],
+  },
+  {
+    name: 'audit-task',
+    component: AuditTask,
+    type: ScreenType.Question,
+    preloadImages: [auditBg],
   },
   {
     name: 'final',

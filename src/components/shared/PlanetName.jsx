@@ -7,6 +7,7 @@ export const Planet = styled.p`
     font-weight: 300;
     letter-spacing: 0.255em;
     text-transform: uppercase;
+    user-select: none;
 `
 
 export const PlanetName = styled.h1`
@@ -17,4 +18,5 @@ export const PlanetName = styled.h1`
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-top: -15px;
+    user-select: none;
 `

@@ -19,9 +19,13 @@ const ModalWrapper = styled.div`
       left: 50%;
       transform: translate(-50%, -50%);
       width: 335px;
+      @media screen and (max-width: 340px){
+        max-width: 280px;
+      }
+      
       @media screen and (min-width: 640px){
         max-width: 310px;
-    }
+      }
 `
 
 const Modal = styled.div`
@@ -36,6 +40,10 @@ const Modal = styled.div`
       border-radius: 10px;
       padding: 15px 17px;
       min-height: 100px;
+      
+      @media screen and (max-width: 340px){
+         white-space: normal;
+      }
 `
 
 const Title = styled.p`

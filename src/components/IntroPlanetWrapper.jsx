@@ -10,18 +10,15 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 7.88vh 1vw 0;
+  padding: 7.88% 1vw 0;
   & svg{
+  display: block;
     width: 100%;
-    height: fit-content;
   }
+  
   @media screen and (min-width: 640px){
       padding: 70px 15px;
   }
-`
-
-const Name = styled(PlanetName)`
-    margin: -15px 0 10.134vh;
 `
 
 const SearchBtn = styled(Button)`
@@ -43,7 +40,7 @@ export const IntroPlanetWrapper = ({planet}) => {
             <Image src={planet.bgImg} alt={''}/>
         </Background>
             <Planet> планета </Planet>
-            <Name>{planet.name}</Name>
+            <PlanetName>{planet.name}</PlanetName>
             {planet.img()}
             <SearchBtn onClick={setNext}>Исследовать</SearchBtn>
     </Wrapper>)

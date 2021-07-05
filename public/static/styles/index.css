@@ -12,19 +12,17 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: relative;
   color: #FFFFFF;
-  background: black;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: 'UniversforKPMG', Tahoma, Geneva, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 img{
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    pointer-events: none;
+    user-select: none;
 }
 
 

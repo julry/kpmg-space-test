@@ -2,6 +2,33 @@ import React from "react";
 import {Logos} from "./components/shared/svg/Logos";
 import {logosBg, logosBgQuestions, storiosBg, storiosBgQuestions} from "./constants/images";
 import {Storios} from "./components/shared/svg/Storios";
+import {Audit} from "./components/shared/svg/Audit";
+import {Toy} from "./components/shared/svg/Toy";
+import {ChildPic} from "./components/shared/svg/ChildPic";
+import {Letter} from "./components/shared/svg/Letter";
+import {Headphones} from "./components/shared/svg/Headphones";
+import {DVD} from "./components/shared/svg/DVD";
+import {Laptop} from "./components/shared/svg/Laptop";
+import {OxygenBalloon} from "./components/shared/svg/OxygenBalloon";
+import {Helmet} from "./components/shared/svg/Helmet";
+import {FoodTubes} from "./components/shared/svg/FoodTubes";
+import {Photo} from "./components/shared/svg/Photo";
+import {Paper} from "./components/shared/svg/Paper";
+import {Pen} from "./components/shared/svg/Pen";
+
+export const CATEGORIES_TITLE = {
+    home: 'домашние\nпредметы',
+    work: 'рабочие\nштучки',
+    habit: 'захватили\nпо привычке',
+    memory: 'Память\nо Земле'
+}
+
+export const CATEGORIES_SUBJECTS = {
+    home: ['balloon', 'helmet', 'FoodTubes'],
+    work: ['Laptop', 'Paper', 'Pen'],
+    habit: ['toy', 'dvd', 'headphones'],
+    memory: ['Photo', 'pic', 'letter'],
+}
 
 export const planets = [
     {
@@ -196,46 +223,166 @@ export const planets = [
     {
         id: '3',
         name: 'Аудит',
+        img: Audit,
         attempts: null,
         subjects: {
             home: [
                 {
-                    id: 'home-1',
-                    svg: <div style={{background: 'red', width: 50, height: 50}} />
+                    id: 'balloon',
+                    styles:
+                        {
+                            top: '20.7827%',
+                            left: '26.0685%',
+                            height: '10px',
+                            width: '6px',
+                            transform: 'rotate(-105deg)'
+                        }
+                    ,
+                    svg: (props)=><OxygenBalloon {...props}/>
                 },
                 {
-                    id: 'home-2',
-                    svg: <div style={{background: 'green', width: 50, height: 50}} />
+                    id: 'helmet',
+                    styles:
+                        {
+                            top: '14.5487%',
+                            right: '49.4793%',
+                            height: '6px',
+                            width: '6px',
+                        }
+                    ,
+                    svg: (props)=><Helmet {...props}/>
+                },
+                {
+                    id: 'FoodTubes',
+                    styles:
+                        {
+                            top: '16.7409%',
+                            right: '44.9862%',
+                            height: '6px',
+                            width: '6px',
+                        }
+                    ,
+                    svg: (props)=><FoodTubes {...props}/>
                 }
             ],
             work: [
                 {
-                    id: 'work-1',
-                    svg: <div style={{background: 'yellow', width: 50, height: 50}} />
+                    id: 'Laptop',
+                    styles:
+                        {
+                            top: '20.5869%',
+                            right: '33.2909%',
+                            height: '6px',
+                            width: '6px',
+                        }
+                    ,
+                    svg: (props)=><Laptop {...props}/>
                 },
                 {
-                    id: 'work-2',
-                    svg: <div style={{background: 'blue', width: 50, height: 50}} />
+                    id: 'Paper',
+                    styles:
+                        {
+                            top: '32.8488%',
+                            right: '29.6194%',
+                            height: '5px',
+                            width: '5px',
+                            transform: 'rotate(45deg)'
+                        }
+                    ,
+                    svg: (props)=><Paper {...props}/>
+                },
+                {
+                    id: 'Pen',
+                    styles:
+                        {
+                            top: '34.0027%',
+                            right: '29.9416%',
+                            height: '4px',
+                            width: '4px',
+                        }
+                    ,
+                    svg: (props)=><Pen {...props}/>
                 }
             ],
             habit: [
                 {
-                    id: 'habit-1',
-                    svg: <div style={{background: 'black', width: 50, height: 50}} />
+                    id: 'toy',
+                    styles:
+                        {
+                            top: '17.1722%',
+                            left: '38.2825%',
+                            height: '5px',
+                            width: '5px',
+                        }
+                    ,
+                    svg: (props)=><Toy {...props}/>
                 },
                 {
-                    id: 'habit-2',
-                    svg: <div style={{background: 'orange', width: 50, height: 50}} />
-                }
+                    id: 'dvd',
+                    styles:
+                        {
+                            bottom: '27.5729%',
+                            right: '23.07261%',
+                            height: '5px',
+                            width: '5px',
+                        }
+                    ,
+                    svg: (props)=> <DVD {...props}/>
+                },
+                {
+                    id: 'headphones',
+                    styles:
+                        {
+                            bottom: '42.7824%',
+                            left: '11.6008%',
+                            height: '5px',
+                            width: '5px',
+                            transform: 'rotate(-90deg)'
+                        }
+                    ,
+                    svg: (props)=><Headphones {...props}/>
+                },
+
             ],
             memory: [
                 {
-                    id: 'memory-1',
-                    svg: <div style={{background: 'violet', width: 50, height: 50}} />
+                    id: 'Photo',
+                    styles:
+                        {
+                            bottom: '24.3341%',
+                            right: '33.2888%',
+                            height: '5px',
+                            width: '5px',
+                            transform: 'rotate(180deg)'
+                        }
+                    ,
+                    svg: (props)=> <Photo {...props}/>
                 },
                 {
-                    id: 'memory-2',
-                    svg: <div style={{background: 'beige', width: 50, height: 50}} />
+                    id: 'pic',
+                    styles:
+                        {
+                            bottom: '27.5382%',
+                            left: '21.031%',
+                            height: '5px',
+                            width: '5px',
+                            transform: 'rotate(180deg)'
+                        }
+                    ,
+                    svg: (props)=> <ChildPic {...props}/>
+                },
+                {
+                    id: 'letter',
+                    styles:
+                        {
+                            bottom: '45.576%',
+                            right: '19.241%',
+                            height: '5px',
+                            width: '5px',
+                            transform: 'rotate(90deg)'
+                        }
+                    ,
+                    svg: (props)=> <Letter {...props}/>
                 }
             ]
         }

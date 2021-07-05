@@ -5,12 +5,13 @@ import {ModalInfo} from "./shared/ModalInfo";
 import {ModalTypes} from "../screens.config";
 import {Planet, PlanetName} from "./shared/PlanetName";
 import {Background, Image} from "./shared/Background";
+import {StartBtn} from "./shared/StartBtn";
+import {getLeftProperty} from "../utils/getLeftProperty";
 
 const Wrapper = styled.div`
     display: grid;
     height: 100%;
-    padding-top: 20px;
-    grid-template-rows: minmax(max-content, 16.44vh) minmax(62.3641vh, 65.1196vh) 16.5vh;
+    grid-template-rows: auto minmax(67%, max-content) 16.5%;
     @media screen and (min-width: 640px){
         padding-top: 50px;
         grid-template-rows: minmax(max-content, 100px) 470px 125px;
@@ -18,6 +19,8 @@ const Wrapper = styled.div`
 `
 const ContentWrapper = styled.div`
     margin: auto;
+    max-height: 100%;
+    overflow: auto;
 `
 const TaskWrapper = styled.div`
     background: #FFFFFF;
@@ -29,11 +32,15 @@ const TaskWrapper = styled.div`
     font-weight: 300;
     line-height: 17px;
     white-space: pre-wrap;
-    margin-bottom: 2.7174vh;
+    margin-bottom: 2.7174%;
     
     @media screen and (min-width: 640px){
         max-width: 310px;
         padding-right: 8px;
+    }
+    
+     @media screen and (max-width: 340px){
+        max-width: 280px;
     }
 `
 
@@ -43,11 +50,14 @@ const PlanetNameWrapper = styled.div`
 const ProgressWrapper = styled.div`
     width: 336px;
     height: fit-content;
-    margin: 0 auto;
+    margin: ${props => props.marginTop} auto 0;
     position: relative;
     display: flex;
     justify-content: space-between;
     
+    @media screen and (max-width: 340px){
+        max-width: 280px;
+    }
     @media screen and (min-width: 640px){
         max-width: 310px;
     }
@@ -61,9 +71,14 @@ const ProgressBar =  styled.div`
     top: 50%;
     transform: translate(0,-50%);
     @media screen and (min-width: 640px){
-        max-width: 310px;
         width: 97px;
     }
+    
+    @media screen and (max-width: 340px){
+        width: 85px;
+    }
+    
+    
 `
 const Point = styled.div`
     height: 39px;
@@ -106,7 +121,7 @@ const  TaskTitle = styled.p`
 
 const AnswerWrapper = styled(TaskWrapper)`
     padding: 5px 11px;
-    margin-top: 1.0869vh;
+    margin-top: 1.0869%;
     margin-bottom: 0;
     border: 2px solid #FFFFFF;
     cursor: pointer;
@@ -138,12 +153,19 @@ const Attempt = styled.div`
 const AttemptWrapper = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 4.5vh;
+    margin-top: 4.5%;
 
     
     @media screen and (min-width:640px){
         margin-top: 20px;
     }
+`
+
+const StartTestBtn = styled(StartBtn)`
+    margin: 5% auto;
+    position: static;
+    width: 70px;
+    height: 70px;
 `
 
 export const QuestionWrapper = (props) => {
@@ -156,11 +178,11 @@ export const QuestionWrapper = (props) => {
         setAnswer(planet.id, question.id, answer.id);
 
         if (answer.isCorrect) {
-            if (+question.id === planet.questions.length) {
-                setCurrentAttempt(0);
-            }
             setTimeout(()=> {
-                setNext()
+                setNext();
+                if (+question.id === planet.questions.length) {
+                    setCurrentAttempt(0);
+                }
             }, 1500);
         }
         else {
@@ -172,7 +194,7 @@ export const QuestionWrapper = (props) => {
             else {
                 setTypeModal(ModalTypes.Tip);
             }
-            setTimeout(()=>setIsModal(true), 1500);
+            setTimeout(()=>setIsModal(true), 400);
         }
 
     }
@@ -212,21 +234,14 @@ export const QuestionWrapper = (props) => {
             </ContentWrapper>
         }
         <div>
-        <ProgressWrapper>
+        <ProgressWrapper marginTop={question ? 0 : '-15%'}>
             <Point>
                 <ActivePointMark />
             </Point>
             {planet.questions.map(q=> {
-                let left ='';
-                if (window.innerWidth < 640) {
-                    left = 12 + (q.id - 1) * 106;
-                }
-                else {
-                    left = 12 + (q.id - 1) * 97;
-                }
                 const  backgroundBar =  (question && q.id <= question.id) ? '#00BDFF' : '#FFFFFF';
                     return <div key={q.text}>
-                        <ProgressBar style={{left: left + 'px', background: backgroundBar}}/>
+                        <ProgressBar style={{left: getLeftProperty(q.id) + 'px', background: backgroundBar}}/>
                         <Point >
                             {question && q.id <= question.id ? <ActivePointMark/> : <PointMark/>}
                         </Point>
@@ -234,11 +249,13 @@ export const QuestionWrapper = (props) => {
                 }
             )}
         </ProgressWrapper>
-        <AttemptWrapper>
-            {planet.attempts > 1 && [...Array(planet.attempts).keys()].map((attempt,id)=>
-                <Attempt style={(id+1)<=currentAttempt ? {background:'#FF1F00'} : {}}/>
-            )}
-        </AttemptWrapper>
+            { !question ? <StartTestBtn/>
+            : <AttemptWrapper>
+                    {planet.attempts > 1 && [...Array(planet.attempts).keys()].map((attempt, id) =>
+                        <Attempt style={(id + 1) <= currentAttempt ? {background: '#FF1F00'} : {}}/>
+                    )}
+                </AttemptWrapper>
+            }
             </div>
         {isModal&&<ModalInfo type={typeModal} text={question.tip ?? ''} setIsModal={setIsModal} planet={planet} />}
     </Wrapper>
