@@ -228,19 +228,6 @@ export const planets = [
         subjects: {
             home: [
                 {
-                    id: 'balloon',
-                    styles:
-                        {
-                            top: '20.7827%',
-                            left: '26.0685%',
-                            height: '10px',
-                            width: '6px',
-                            transform: 'rotate(-105deg)'
-                        }
-                    ,
-                    svg: (props)=><OxygenBalloon {...props}/>
-                },
-                {
                     id: 'helmet',
                     styles:
                         {
@@ -291,18 +278,6 @@ export const planets = [
                     ,
                     svg: (props)=><Paper {...props}/>
                 },
-                {
-                    id: 'Pen',
-                    styles:
-                        {
-                            top: '34.0027%',
-                            right: '29.9416%',
-                            height: '4px',
-                            width: '4px',
-                        }
-                    ,
-                    svg: (props)=><Pen {...props}/>
-                }
             ],
             habit: [
                 {
@@ -316,18 +291,6 @@ export const planets = [
                         }
                     ,
                     svg: (props)=><Toy {...props}/>
-                },
-                {
-                    id: 'dvd',
-                    styles:
-                        {
-                            bottom: '27.5729%',
-                            right: '23.07261%',
-                            height: '5px',
-                            width: '5px',
-                        }
-                    ,
-                    svg: (props)=> <DVD {...props}/>
                 },
                 {
                     id: 'headphones',
@@ -357,19 +320,6 @@ export const planets = [
                         }
                     ,
                     svg: (props)=> <Photo {...props}/>
-                },
-                {
-                    id: 'pic',
-                    styles:
-                        {
-                            bottom: '27.5382%',
-                            left: '21.031%',
-                            height: '5px',
-                            width: '5px',
-                            transform: 'rotate(180deg)'
-                        }
-                    ,
-                    svg: (props)=> <ChildPic {...props}/>
                 },
                 {
                     id: 'letter',

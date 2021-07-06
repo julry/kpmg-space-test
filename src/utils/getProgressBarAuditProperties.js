@@ -1,12 +1,14 @@
+import {getPlanetById} from "./getPlanetById";
+
 export const getProgressBarAuditProperties = (id, isLast) => {
     let width;
     if (window.innerWidth < 350) {
-        width = 22.5;
+        width = 33.75;
     } else if (window.innerWidth < 640) {
-        width = 29;
+        width = 43.5;
     }
     else {
-        width = 25;
+        width = 37.5;
     }
 
     const left = id * width;

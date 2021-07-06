@@ -51,21 +51,22 @@ const PlanetInfo = styled.div`
 `
 
 const Buttons = styled.div`
-    display: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    
     @media screen and (min-width: 640px){
-        display: flex;
-        position: absolute;
-        left: 0;
-        justify-content: center;
         bottom: 20px;
-        width: 100%;
     }
 `
 
 const CategoriesWrapper = styled.div`
     position: absolute;
     display: flex;
-    bottom: 35px;
+    bottom: 80px;
     justify-content: space-between;
     width: 100%;      
     padding: 0 8.5%;
@@ -262,7 +263,7 @@ export const AuditTask = () => {
                     )}
                 </ProgressBar>
 
-                {isTouchDevice() ? <Hammer ref={(ref) => setHammerInstance(ref?.hammer)} options={options}>
+                {isTouchDevice() ?
                     <QuickPinchZoom
                         onUpdate={onUpdate}
                         ref={planetAudit}
@@ -278,7 +279,6 @@ export const AuditTask = () => {
                             rotate={rotate}
                         />
                     </QuickPinchZoom>
-                </Hammer>
                 : <div onWheel={onWheelZoom}>
                       <PlanetWrapper
                             innerRef={innerRef}

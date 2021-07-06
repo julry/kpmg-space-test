@@ -32,10 +32,16 @@ const Field = styled.div`
       position: absolute;
     }
     
+     @media screen and (max-width: 350px) {
+       width: 50px;
+      height: 50px;
+    }
+    
     @media screen and (min-width: 640px){
         width: 65px;
         height: 65px;
     }
+    
 `
 const ErrorField = styled(Field)`
     animation: ${shake} 0.8s;
