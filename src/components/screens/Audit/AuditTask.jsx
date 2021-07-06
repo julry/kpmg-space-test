@@ -1,6 +1,5 @@
-import React, {useCallback, useContext, useEffect, useRef, useState} from "react";
+import React, {useCallback, useContext, useRef, useState} from "react";
 import styled from "styled-components";
-import HammerJS from 'hammerjs';
 import {DndProvider} from "react-dnd";
 import {TouchBackend} from 'react-dnd-touch-backend';
 import {HTML5Backend} from "react-dnd-html5-backend";
@@ -10,8 +9,7 @@ import QuickPinchZoom, {
     make3dTransformValue,
     hasTranslate3DSupport
 } from "react-quick-pinch-zoom";
-import {Hammer} from '../../shared/Hammer';
-import {audit, auditBg} from "../../../constants/images";
+import {auditBg} from "../../../constants/images";
 import {getPlanetById} from "../../../utils/getPlanetById";
 import {Background, Image} from "../../shared/Background";
 import {Planet, PlanetName} from "../../shared/PlanetName";
@@ -22,14 +20,6 @@ import {getProgressBarAuditProperties} from "../../../utils/getProgressBarAuditP
 import {ProgressContext} from "../../../context/ProgressContext";
 import {TurnLeft} from "../../shared/svg/TurnLeft";
 import {TurnRight} from "../../shared/svg/TurnRight";
-
-
-const options = {
-    recognizers: [
-        [HammerJS.Rotate, {enable: true}],
-    ]
-};
-
 
 const Wrapper = styled.div`
     display: grid;
@@ -124,7 +114,6 @@ export const AuditTask = () => {
     const planetAudit = useRef(null);
     const [rotate, setRotate] = useState(0)
     const [scale, setScale] = useState(1);
-    const [hammerInstance, setHammerInstance] = useState(null);
     const [canPinch, setCanPinch] = useState(false);
     const [isPinchEnable, setIsPinchEnable] = useState(true);
     const [chosenSubjects, setChosenSubjects] = useState([]);
@@ -164,20 +153,11 @@ export const AuditTask = () => {
             (navigator.msMaxTouchPoints > 0));
     }
 
-
-    useEffect(() => {
-        if (hammerInstance) {
-            hammerInstance.get('rotate').set({enable: true});
-            hammerInstance.on('rotate', function (ev) {
-                setRotate(ev.rotation);
-            });
-        }
-    }, [hammerInstance])
-
     const disablePinch = (e) => {
         setIsPinchEnable(false);
         setIsDragEnable(false);
-        e.stopPropagation();
+        if (!isTouchDevice()) e.stopPropagation();
+
     }
 
     const enablePinch = () => {
