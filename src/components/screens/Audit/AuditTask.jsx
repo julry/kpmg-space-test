@@ -134,6 +134,21 @@ export const AuditTask = () => {
 
     const innerRef = useRef(null);
 
+    function debounce(func, wait, immediate) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
     const onUpdate = ({x, y, scale}) => {
         const {current: div} = innerRef;
         if (!canPinch) setCanPinch(true);
@@ -178,7 +193,7 @@ export const AuditTask = () => {
 
     }
 
-    const onWheelZoom = useCallback(
+    const onWheelZoom = debounce(
         (e) => {
             const step = 0.025;
             if (scale+e.deltaY*step < 1) {
@@ -192,23 +207,22 @@ export const AuditTask = () => {
                 return;
             }
             setScale(scale=> scale + e.deltaY*step);
-        },
-        [scale, setScale],
+        }, 10
     );
 
-    const onPlanetDragStart = (e) => {
+    const onPlanetDragStart = debounce((e) => {
         if (!isDragEnable) return;
         setIsDragging(true);
         const x = e.pageX;
         const y = e.pageY;
         setStartPosition({x,y});
-    }
+    }, 10);
 
     const onPlanetDragEnd = () => {
         setIsDragging(false);
     }
 
-    const onPlanetDrag = (e) => {
+    const onPlanetDrag = debounce((e) => {
         if (!isDragging) return;
         const valueX = e.pageX;
         const valueY = e.pageY;
@@ -223,7 +237,7 @@ export const AuditTask = () => {
             return;
         }
         setPosition({x,y});
-    }
+    }, 10);
 
 
     return (

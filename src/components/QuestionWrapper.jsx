@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     grid-template-rows: auto minmax(67%, max-content) 16.5%;
     @media screen and (min-width: 640px){
         padding-top: 50px;
-        grid-template-rows: minmax(max-content, 100px) 470px 125px;
+        grid-template-rows: minmax(max-content, 100px) 445px 125px;
     }
 `
 const ContentWrapper = styled.div`

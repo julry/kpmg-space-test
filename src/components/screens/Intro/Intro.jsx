@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   padding: 3.0843% 8.6957vw;
   white-space: pre-wrap;
   @media screen and (min-width: 640px){
-      padding: 28px 15px;
+      padding: 40px 15px;
   }
 `
 
