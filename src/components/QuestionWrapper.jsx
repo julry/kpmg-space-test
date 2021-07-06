@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useLayoutEffect, useState} from "react";
 import styled from 'styled-components';
 import { ProgressContext } from '../context/ProgressContext';
 import {ModalInfo} from "./shared/ModalInfo";
@@ -7,6 +7,7 @@ import {Planet, PlanetName} from "./shared/PlanetName";
 import {Background, Image} from "./shared/Background";
 import {StartBtn} from "./shared/StartBtn";
 import {getLeftProperty} from "../utils/getLeftProperty";
+import {shuffle} from "../utils/shuffle";
 
 const Wrapper = styled.div`
     display: grid;
@@ -170,10 +171,16 @@ const StartTestBtn = styled(StartBtn)`
 
 export const QuestionWrapper = (props) => {
     const {planet, question} = props;
+    const [questionAnswers, setQuestionAnswers] = useState(question ? question.answers : []);
     const [isModal, setIsModal] = useState(false);
     const [typeModal, setTypeModal] = useState('');
 
     const { setAnswer, setNext, currentAttempt, setCurrentAttempt, answers } = useContext(ProgressContext);
+
+    useLayoutEffect(() => {
+        setQuestionAnswers(shuffle(question ? question.answers : []));
+    }, [question]);
+
     const onAnswerClick = (answer) => {
         setAnswer(planet.id, question.id, answer.id);
 
@@ -212,7 +219,7 @@ export const QuestionWrapper = (props) => {
                 <TaskTitle>Задача {question.id}</TaskTitle>
                 <p>{question.text}</p>
             </TaskWrapper>
-            {question.answers.map(answer=>{
+            {questionAnswers.map(answer=>{
                 return answers[planet.id]&&answers[planet.id][question.id]===answer.id ?
                     answer.isCorrect ?<ChosenAnswerCorrect key={question.id + answer.id + 'correct'}>
                             <p>{answer.text}</p>
