@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'KPMGCyrillic';
+    src: local('KPMGCyrillic Light'), local('KPMGCyrillic-Light'),
+    url('../fonts/KPMGCyrillic-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UniversforKPMG';
+    src: local('UniversforKPMG Regular'), local('UniversforKPMG-Regular'),
+    url('../fonts/UniversforKPMG-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UniversforKPMG';
+    src: local('UniversforKPMG Light'), local('UniversforKPMG-Light'),
+    url('../fonts/UniversforKPMG-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UniversforKPMG';
+    src: local('UniversforKPMG Bold'), local('UniversforKPMG-Bold'),
+    url('../fonts/UniversforKPMG-Bold.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
