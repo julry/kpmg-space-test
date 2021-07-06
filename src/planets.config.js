@@ -161,7 +161,7 @@ export const planets = [
                         isCorrect: false
                     }
                 ],
-                tip: ''
+                tip: 'Не совсем верно! Подумай про то, чем занимаются герои :)'
             },
             {
                 id: '2',
@@ -189,7 +189,7 @@ export const planets = [
                         isCorrect: false
                     }
                 ],
-                tip: ''
+                tip: 'Ой! Посмотри в сторону первоначального значения слова :)'
             },
             {
                 id: '3',
@@ -216,7 +216,7 @@ export const planets = [
                         isCorrect: false
                     }
                 ],
-                tip: ''
+                tip: 'Нет более емкой подсказки, чем фраза «Боже храни королеву»!'
             }
         ]
     },

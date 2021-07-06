@@ -6,11 +6,13 @@ import {Background, Image} from "../../shared/Background";
 import {introBg} from "../../../constants/images";
 import {StartBtn} from "../../shared/StartBtn";
 import {PlanetName} from "../../shared/PlanetName";
-import {fade} from "../../../utils/keyframes";
+import {decorAnimation, fade} from "../../../utils/keyframes";
+import {IntroDecor} from "../../shared/svg/IntroDecor";
 
 const Wrapper = styled.div`
   padding: 3.0843% 8.6957vw;
   white-space: pre-wrap;
+  overflow: hidden;
   @media screen and (min-width: 640px){
       padding: 28px 15px;
   }
@@ -50,6 +52,26 @@ const AuditWrapper = styled(NameWrapper)`
     left: 7.7294%
 `
 
+const IntroDecorStyled = styled(IntroDecor)`
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 75%;
+`
+
+const DecorWrapper = styled.div`
+    overflow: hidden;
+    width: 30vw;
+    position: absolute;
+    right: 0;
+    height: 20%;
+`
+
+const IntroDecorAnimated = styled(IntroDecorStyled)`
+    animation: ${decorAnimation} 1.5s;
+    animation-fill-mode: forwards
+`
 
 const NextBtn = styled(StartBtn)`
   right: 9.66%;
@@ -68,6 +90,9 @@ export const Intro2 = () => {
     const [stage, setStage] = useState(1);
 
     return <Wrapper>
+        <DecorWrapper>
+            {stage ===1 ? <IntroDecorStyled /> : <IntroDecorAnimated />}
+        </DecorWrapper>
         <Background>
             <Image src={introBg} alt={''}/>
         </Background>

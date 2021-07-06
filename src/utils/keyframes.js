@@ -34,3 +34,10 @@ export const auraFade = keyframes`
       opacity: 1;
     }
 `
+
+export const decorAnimation = keyframes`
+   to{
+      right: -10%;
+      bottom: 10%;
+   }
+`

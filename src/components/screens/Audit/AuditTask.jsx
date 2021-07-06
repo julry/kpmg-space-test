@@ -20,6 +20,8 @@ import {CATEGORIES_SUBJECTS, CATEGORIES_TITLE} from "../../../planets.config";
 import {PlanetWrapper} from "./PlanetWrapper";
 import {getProgressBarAuditProperties} from "../../../utils/getProgressBarAuditProperties";
 import {ProgressContext} from "../../../context/ProgressContext";
+import {TurnLeft} from "../../shared/svg/TurnLeft";
+import {TurnRight} from "../../shared/svg/TurnRight";
 
 
 const options = {
@@ -37,7 +39,8 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 20.38% 71px auto;
     @media screen and (min-width: 640px){
-        grid-template-rows: 140px 71px auto;
+        display: block;
+        padding-top: 50px;
     }
 `
 
@@ -50,10 +53,12 @@ const PlanetInfo = styled.div`
 const Buttons = styled.div`
     display: none;
     @media screen and (min-width: 640px){
-        display: block;
-        position: fixed;
-        right: 10vw;
-        top: 50vh;
+        display: flex;
+        position: absolute;
+        left: 0;
+        justify-content: center;
+        bottom: 20px;
+        width: 100%;
     }
 `
 
@@ -68,7 +73,7 @@ const CategoriesWrapper = styled.div`
     
     @media screen and (min-width: 640px){
         padding: 0 10px;
-        bottom: 60px;
+        bottom: 110px;
     }
 `
 
@@ -93,6 +98,17 @@ const ActiveProgress = styled(ProgressBar)`
     background: #00BDFF;
     ${(props) => props};
 
+`
+
+const TurnBtnLeft = styled(TurnLeft)`
+    width: 65px;
+    height: 65px;
+`
+
+const TurnBtnRight = styled(TurnRight)`
+    margin-left: 30px;
+    width:65px;
+    height: 65px;
 `
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -289,6 +305,10 @@ export const AuditTask = () => {
                         shownSubjects={chosenSubjects}
                     />))}
                 </CategoriesWrapper>
+                <Buttons>
+                    <TurnBtnLeft onClick={()=>setRotate(rotate=>rotate - 15)}/>
+                    <TurnBtnRight onClick={()=>setRotate(rotate=>rotate + 15)}/>
+                </Buttons>
             </Wrapper>
         </DndProvider>
     );

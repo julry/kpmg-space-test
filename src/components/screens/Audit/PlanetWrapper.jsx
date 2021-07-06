@@ -21,7 +21,7 @@ export const PlanetWrapper = (props) =>{
                 onMouseDown={onPlanetDragStart ?? (() => null)}
                 onMouseUp={onPlanetDragEnd ?? (() => null)}
                 onMouseMove={onPlanetDrag ?? (() => null)}
-                 style={scale ?{transform: `scale(${scale ? scale : 1}) translate(${position.x}px,${position.y}px)`}
+                 style={scale ?{transform: `scale(${scale ? scale : 1}) translate(${position.x}px,${position.y}px) rotate(${rotate}deg)`}
                  : { transform: `rotate(${rotate}deg)`}}
             >
                 <Audit style={{width: "100%", height: '100%'}}/>
