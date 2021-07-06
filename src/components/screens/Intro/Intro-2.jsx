@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   white-space: pre-wrap;
   overflow: hidden;
   @media screen and (min-width: 640px){
-      padding: 28px 15px;
+      padding: 40px 15px;
   }
 `
 
@@ -66,6 +66,11 @@ const DecorWrapper = styled.div`
     position: absolute;
     right: 0;
     height: 20%;
+    
+    @media screen and (min-width: 640px){
+        width: 140px;
+        height: 130px;
+    }
 `
 
 const IntroDecorAnimated = styled(IntroDecorStyled)`
