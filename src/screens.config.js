@@ -15,6 +15,7 @@ import {AuditTask} from "./components/screens/Audit/AuditTask";
 import {Final} from "./components/screens/Final";
 
 import {auditBg, introBg, logosBg, logosBgQuestions, storiosBg, storiosBgQuestions} from "./constants/images";
+import {LogosEnd} from "./components/screens/Logos/LogosEnd";
 
 
 export const ScreenType = {
@@ -74,8 +75,15 @@ export const screens = [
     name: 'logos-question-3',
     component: LogosQuestion3,
     type: ScreenType.Question,
-    preloadImages: [storiosBg],
+    preloadImages: [introBg],
     image: [logosBgQuestions],
+  },
+  {
+    name: 'logos-end',
+    component: LogosEnd,
+    type: ScreenType.Question,
+    preloadImages: [storiosBg],
+    image: [introBg],
   },
   {
     name: 'storios-intro',

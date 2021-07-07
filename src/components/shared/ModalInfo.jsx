@@ -79,7 +79,7 @@ const NextBtn = styled(Button)`
 `
 
 export const ModalInfo = (props) => {
-    const {type, text, setIsModal, planet} = props;
+    const {type, text, setIsModal, planet, children} = props;
     const { retryPlanet, setNext } = useContext(ProgressContext);
 
     return <Wrapper>
@@ -101,6 +101,7 @@ export const ModalInfo = (props) => {
                 : <ModalWrapper>
                     <Modal>
                         <Text>{text ?? ''}</Text>
+                        {children}
                     </Modal>
                     <NextBtn onClick={setNext}><PlayIcon /></NextBtn>
 

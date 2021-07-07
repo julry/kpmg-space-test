@@ -9,7 +9,6 @@ const Wrapper = styled.div`
     transform-origin: 0 0;
 `
 
-
 export const PlanetWrapper = (props) =>{
     const {innerRef,position, onPlanetDragStart, onPlanetDrag,
         onPlanetDragEnd, allSubjects, disablePinch, enablePinch,

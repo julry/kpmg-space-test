@@ -14,8 +14,8 @@ const Wrapper = styled.div`
     height: 100%;
     grid-template-rows: auto minmax(67%, max-content) 16.5%;
     @media screen and (min-width: 640px){
-        padding-top: 50px;
-        grid-template-rows: minmax(max-content, 100px) 445px 125px;
+        padding-top: 7.2%;
+        grid-template-rows: minmax(max-content,17.5%) 68.574% 12.8%;
     }
 `
 const ContentWrapper = styled.div`
@@ -241,7 +241,7 @@ export const QuestionWrapper = (props) => {
             </ContentWrapper>
         }
         <div>
-        <ProgressWrapper marginTop={question ? 0 : '-15%'}>
+        <ProgressWrapper marginTop={question ? 0 : '-35%'}>
             <Point>
                 <ActivePointMark />
             </Point>

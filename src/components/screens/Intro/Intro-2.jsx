@@ -43,16 +43,25 @@ const Description = styled.p`
 const LogosWrapper = styled(NameWrapper)`
     top: 15.85%;
     left: 29.95%;
+    @media screen and (min-width: 640px){
+      top: 18%;
+    }
 `
 
 const StoriosWrapper = styled(NameWrapper)`
     top: 48.505%;
-    left: 8.4541%
+    left: 8.4541%;
+    @media screen and (min-width: 640px){
+      top: 45.505%;
+    }
 `
 
 const AuditWrapper = styled(NameWrapper)`
     top: 71.8152%;
-    left: 7.7294%
+    left: 7.7294%;
+    @media screen and (min-width: 640px){
+      top: 66.8152%;
+    }
 `
 
 const IntroDecorStyled = styled(IntroDecor)`
