@@ -45,7 +45,7 @@ const PlanetInfo = styled.div`
 const Buttons = styled.div`
     position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     left: 0;
     width: 100%;
@@ -54,6 +54,8 @@ const Buttons = styled.div`
     padding: 0 20px;
     @media screen and (min-width: 640px){
         bottom: 20px;
+        justify-content: space-between;
+
     }
 `
 
@@ -111,15 +113,29 @@ const TurnLeftBtn = styled(TurnLeft)`
 const TurnRightBtn = styled(TurnRight)`
     width: 65px;
     height: 65px;
+    margin-left: 30px;
+    @media screen and (min-width: 640px) {
+      margin: 0;
+    }
 `
 
 const ZoomInBtn = styled(ZoomIn)`
+    display: none;
     width: 35px;
     height: 35px;
+    
+    @media screen and (min-width: 640px) {
+      display: block;
+    }
 `
 const ZoomOutBtn = styled(ZoomOut)`
+    display: none;
     width: 35px;
     height: 35px;
+    
+     @media screen and (min-width: 640px) {
+      display: block;
+    }
 `
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
