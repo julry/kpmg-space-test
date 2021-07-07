@@ -20,6 +20,8 @@ import {getProgressBarAuditProperties} from "../../../utils/getProgressBarAuditP
 import {ProgressContext} from "../../../context/ProgressContext";
 import {TurnLeft} from "../../shared/svg/TurnLeft";
 import {TurnRight} from "../../shared/svg/TurnRight";
+import {ZoomOut} from "../../shared/svg/ZoomOut";
+import {ZoomIn} from "../../shared/svg/ZoomIn";
 
 const Wrapper = styled.div`
     display: grid;
@@ -43,11 +45,13 @@ const PlanetInfo = styled.div`
 const Buttons = styled.div`
     position: absolute;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     left: 0;
     width: 100%;
+    z-index: 104;
     bottom: 0;
-    
+    padding: 0 20px;
     @media screen and (min-width: 640px){
         bottom: 20px;
     }
@@ -84,22 +88,38 @@ const ProgressBar = styled.div`
     }
 `
 
+const Blackout = styled.div`
+    position: absolute;
+    height: 40vh;
+    top: -40px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(2,9,69,0.8) 26%);
+`
+
 const ActiveProgress = styled(ProgressBar)`
     position: absolute;
     background: #00BDFF;
     ${(props) => props};
 
 `
-
-const TurnBtnLeft = styled(TurnLeft)`
+const TurnLeftBtn = styled(TurnLeft)`
+    width: 65px;
+    height: 65px;
+`
+const TurnRightBtn = styled(TurnRight)`
     width: 65px;
     height: 65px;
 `
 
-const TurnBtnRight = styled(TurnRight)`
-    margin-left: 30px;
-    width:65px;
-    height: 65px;
+const ZoomInBtn = styled(ZoomIn)`
+    width: 35px;
+    height: 35px;
+`
+const ZoomOutBtn = styled(ZoomOut)`
+    width: 35px;
+    height: 35px;
 `
 
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
@@ -210,6 +230,21 @@ export const AuditTask = () => {
         }, 10
     );
 
+    const onBtnScale = (direction) => {
+        const step = direction==='in' ? 0.5 : -0.5;
+        if (scale+step < 1) {
+            setScale(1);
+            setIsDragEnable(false);
+            return;
+        }
+        if (!isDragEnable) setIsDragEnable(true);
+        if (scale+step > 4) {
+            setScale(4);
+            return;
+        }
+        setScale(scale=> scale + step);
+    }
+
     const onPlanetDragStart = debounce((e) => {
         if (!isDragEnable) return;
         setIsDragging(true);
@@ -252,7 +287,7 @@ export const AuditTask = () => {
                 </PlanetInfo>
                 <ProgressBar>
                     {chosenSubjects.map((subj,id)=> {
-                           return <ActiveProgress {...getProgressBarAuditProperties(id, id===(chosenSubjects.length-1))}/>
+                           return <ActiveProgress key={subj.id} {...getProgressBarAuditProperties(id, id===(chosenSubjects.length-1))}/>
                         }
                     )}
                 </ProgressBar>
@@ -290,6 +325,7 @@ export const AuditTask = () => {
                     </div>
                 }
                 <CategoriesWrapper>
+                    <Blackout />
                     {Object.keys(subjects).map((category, i) => (<CategoryField
                         title={CATEGORIES_TITLE[category]}
                         key={category}
@@ -300,8 +336,10 @@ export const AuditTask = () => {
                     />))}
                 </CategoriesWrapper>
                 <Buttons>
-                    <TurnBtnLeft onClick={()=>setRotate(rotate=>rotate - 15)}/>
-                    <TurnBtnRight onClick={()=>setRotate(rotate=>rotate + 15)}/>
+                    <ZoomOutBtn onClick={()=>onBtnScale('out')}/>
+                    <TurnLeftBtn onClick={()=>setRotate(rotate=>rotate - 15)}/>
+                    <TurnRightBtn onClick={()=>setRotate(rotate=>rotate + 15)}/>
+                    <ZoomInBtn onClick={()=>onBtnScale('in')} />
                 </Buttons>
             </Wrapper>
         </DndProvider>

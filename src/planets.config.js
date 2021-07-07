@@ -4,12 +4,9 @@ import {logosBg, logosBgQuestions, storiosBg, storiosBgQuestions} from "./consta
 import {Storios} from "./components/shared/svg/Storios";
 import {Audit} from "./components/shared/svg/Audit";
 import {Toy} from "./components/shared/svg/Toy";
-import {ChildPic} from "./components/shared/svg/ChildPic";
 import {Letter} from "./components/shared/svg/Letter";
 import {Headphones} from "./components/shared/svg/Headphones";
-import {DVD} from "./components/shared/svg/DVD";
 import {Laptop} from "./components/shared/svg/Laptop";
-import {OxygenBalloon} from "./components/shared/svg/OxygenBalloon";
 import {Helmet} from "./components/shared/svg/Helmet";
 import {FoodTubes} from "./components/shared/svg/FoodTubes";
 import {Photo} from "./components/shared/svg/Photo";
@@ -40,7 +37,7 @@ export const planets = [
         startScreen: 3,
         questionBg: logosBgQuestions,
         introText: 'Жители планеты Логос проверят твою логику! Тебе предстоит ответить на три вопроса. \n' +
-            'Но не беспокойся, если ошибёшься, жители планеты дадут тебе возможность ответить на вопросы заново',
+            'Но не беспокойся, если ошибёшься, жители планеты дадут тебе возможность ответить на вопросы заново :)',
         questions: [
             {
                 id: '1',
@@ -98,7 +95,7 @@ export const planets = [
             },
             {
                 id: '3',
-                text: 'У космонавтов на МКС есть 100 кг еды в тюбиках на случай непредвиденных обстоятельств. 99% веса этой еды состоит из воды. Из-за продолжительного хранения содержание воды сократилось до 98%. Сколько теперь весят экстренные запасы космонавтов? Весом тюбика можно пренебречь :)',
+                text: 'У космонавтов на МКС есть 100 кг еды в тюбиках на случай непредвиденных обстоятельств. 99% веса этой еды состоит из воды. Из-за продолжительного хранения содержание воды сократилось до 98%. Сколько теперь весят экстренные запасы космонавтов?\nВесом тюбика можно пренебречь :)',
                 answers: [
                     {
                         id: '1',
@@ -131,7 +128,7 @@ export const planets = [
         bgImg: storiosBg,
         questionBg: storiosBgQuestions,
         attempts: 2,
-        startScreen: 8,
+        startScreen: 9,
         introText: 'Сториос славится своими преданиями об аудите, они как греческие мифы, только подвиги тут умственные :)\nСможешь ответить на вопросы о здешних жителях? Старейшины планеты обязательно дадут тебе подсказку, если с первого раза ты не дашь правильный ответ!',
         questions: [
             {
@@ -140,7 +137,7 @@ export const planets = [
                 answers: [
                     {
                         id: '1',
-                        text: 'Ну конечно Ревизор Гоголя! \n' +
+                        text: 'Ну, конечно, Ревизор Гоголя! \n' +
                             'Только тот, что настоящий :)',
                         isCorrect: true
                     },

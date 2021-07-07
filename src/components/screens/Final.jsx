@@ -87,7 +87,7 @@ const ImgWrapper = styled.div`
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 65%;
+    height: 50%;
      @media screen and (min-width: 640px){
         bottom: -37px;
     }
@@ -107,10 +107,10 @@ export const Final = () => {
             <Blackout4 />
             <Blackout3 />
             <Blackout2 />
-            <Blackout />
             <ImgWrapper>
                 <AstronautPic src={astronaut} alt={''}/>
             </ImgWrapper>
+            <Blackout />
         </Background>
         <LogoStyled />
         <Title>Вау, да ты мастер!</Title>

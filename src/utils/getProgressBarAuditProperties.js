@@ -1,5 +1,3 @@
-import {getPlanetById} from "./getPlanetById";
-
 export const getProgressBarAuditProperties = (id, isLast) => {
     let width;
     if (window.innerWidth < 350) {
