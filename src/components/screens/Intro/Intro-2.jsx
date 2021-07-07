@@ -35,7 +35,10 @@ const Description = styled.p`
     font-weight: 300;
     font-size: 13px;
     line-height: 16px;
+    opacity: 0;
     animation: ${fade} 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: ${props=> props.delay};
 `
 const LogosWrapper = styled(NameWrapper)`
     top: 15.85%;
@@ -115,7 +118,7 @@ export const Intro2 = () => {
             <Name>
                 Сториос
             </Name>
-            {stage !== 1 && <Description>
+            {stage !== 1 && <Description delay={'1s'}>
                 Планета славится своими историками, которые помогут тебе раскрыть тайны своих преданий.
             </Description>}
         </StoriosWrapper>
@@ -123,7 +126,7 @@ export const Intro2 = () => {
             <Name>
                 Аудит
             </Name>
-            {stage !== 1 && <Description>
+            {stage !== 1 && <Description delay={'2s'}>
                 Эта планета - родина поселения аудиторов! Ребята не из простых :)
                 Может гении и господствуют над хаосом, но нужно иногда
                 наводить порядок.

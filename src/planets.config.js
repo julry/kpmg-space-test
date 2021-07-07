@@ -132,11 +132,11 @@ export const planets = [
         questionBg: storiosBgQuestions,
         attempts: 2,
         startScreen: 8,
-        introText: 'Сториос славится своими преданиями об аудите, они как греческие мифы, только подвиги тут умственные :) Сможешь ответить на вопросы о здешних жителях? Старейшины планеты обязательно дадут тебе подсказку, если с первого раза ты не дашь правильный ответ!',
+        introText: 'Сториос славится своими преданиями об аудите, они как греческие мифы, только подвиги тут умственные :)\nСможешь ответить на вопросы о здешних жителях? Старейшины планеты обязательно дадут тебе подсказку, если с первого раза ты не дашь правильный ответ!',
         questions: [
             {
                 id: '1',
-                text: 'Какой герой из произведений отечественной художественной литературы — самый яркий предтеча аудиторов?',
+                text: 'Какой герой из произведений отечественной художественной литературы — самый яркий предшественник аудиторов?',
                 answers: [
                     {
                         id: '1',
@@ -233,8 +233,8 @@ export const planets = [
                         {
                             top: '14.5487%',
                             right: '49.4793%',
-                            height: '6px',
-                            width: '6px',
+                            height: '9px',
+                            width: '9px',
                         }
                     ,
                     svg: (props)=><Helmet {...props}/>
@@ -245,8 +245,8 @@ export const planets = [
                         {
                             top: '16.7409%',
                             right: '44.9862%',
-                            height: '6px',
-                            width: '6px',
+                            height: '9px',
+                            width: '9px',
                         }
                     ,
                     svg: (props)=><FoodTubes {...props}/>
@@ -259,8 +259,8 @@ export const planets = [
                         {
                             top: '20.5869%',
                             right: '33.2909%',
-                            height: '6px',
-                            width: '6px',
+                            height: '9px',
+                            width: '9px',
                         }
                     ,
                     svg: (props)=><Laptop {...props}/>
@@ -271,8 +271,8 @@ export const planets = [
                         {
                             top: '32.8488%',
                             right: '29.6194%',
-                            height: '5px',
-                            width: '5px',
+                            height: '8px',
+                            width: '8px',
                             transform: 'rotate(45deg)'
                         }
                     ,
@@ -286,8 +286,8 @@ export const planets = [
                         {
                             top: '17.1722%',
                             left: '38.2825%',
-                            height: '5px',
-                            width: '5px',
+                            height: '8px',
+                            width: '8px',
                         }
                     ,
                     svg: (props)=><Toy {...props}/>
@@ -298,8 +298,8 @@ export const planets = [
                         {
                             bottom: '42.7824%',
                             left: '11.6008%',
-                            height: '5px',
-                            width: '5px',
+                            height: '8px',
+                            width: '8px',
                             transform: 'rotate(-90deg)'
                         }
                     ,
@@ -314,8 +314,8 @@ export const planets = [
                         {
                             bottom: '24.3341%',
                             right: '33.2888%',
-                            height: '5px',
-                            width: '5px',
+                            height: '8px',
+                            width: '8px',
                             transform: 'rotate(180deg)'
                         }
                     ,
@@ -327,8 +327,8 @@ export const planets = [
                         {
                             bottom: '45.576%',
                             right: '19.241%',
-                            height: '5px',
-                            width: '5px',
+                            height: '8px',
+                            width: '8px',
                             transform: 'rotate(90deg)'
                         }
                     ,
