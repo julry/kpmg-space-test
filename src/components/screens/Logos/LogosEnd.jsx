@@ -1,9 +1,9 @@
+import React from "react";
 import styled from "styled-components";
 import {LogoStyled} from "../../shared/LogoStyled";
 import {Background, Image} from "../../shared/Background";
 import {introBg} from "../../../constants/images";
 import {ModalInfo} from "../../shared/ModalInfo";
-import React from "react";
 
 const KPMGLogo = styled(LogoStyled)`
     position: absolute;
@@ -15,7 +15,6 @@ const KPMGLogo = styled(LogoStyled)`
       left: 10px;
     }
 `
-
 
 export const LogosEnd = () => {
     return <>

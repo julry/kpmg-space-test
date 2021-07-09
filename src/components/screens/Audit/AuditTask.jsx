@@ -65,8 +65,12 @@ const CategoriesWrapper = styled.div`
     bottom: 80px;
     justify-content: space-between;
     width: 100%;      
-    padding: 0 8.5%;
+    padding: 0 4.5%;
     z-index: 100;
+    
+    @media screen and (max-width: 350px){
+        padding: 0 8%;
+    }
     
     @media screen and (min-width: 640px){
         padding: 0 10px;
