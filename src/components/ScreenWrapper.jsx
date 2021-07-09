@@ -104,6 +104,7 @@ export function ScreenWrapper() {
     const progressProviderValue = {
         screen,
         answers,
+        height,
         screenDelta,
         currentAttempt,
         setCurrentAttempt,
