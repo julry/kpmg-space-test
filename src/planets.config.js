@@ -14,10 +14,10 @@ import {Paper} from "./components/shared/svg/Paper";
 import {Pen} from "./components/shared/svg/Pen";
 
 export const CATEGORIES_TITLE = {
-    home: 'домашние\nпредметы',
+    home: 'быт\nкосмонавта',
     work: 'рабочие\nштучки',
     habit: 'захватили\nпо привычке',
-    memory: 'Память\nо Земле'
+    memory: 'память\nо Земле'
 }
 
 export const CATEGORIES_SUBJECTS = {

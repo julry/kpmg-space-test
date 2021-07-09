@@ -11,8 +11,9 @@ const Wrapper = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: ${props => props.isLighter ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.7)'};
 `
+
 const ModalWrapper = styled.div`
       position: absolute;
       top: 50%;
@@ -79,10 +80,11 @@ const NextBtn = styled(Button)`
 `
 
 export const ModalInfo = (props) => {
-    const {type, text, setIsModal, planet, children} = props;
+    const {type, text, setIsModal, planet, children, isLighter = false} = props;
     const { retryPlanet, setNext } = useContext(ProgressContext);
 
-    return <Wrapper>
+
+    return <Wrapper isLighter={isLighter}>
         {type === ModalTypes.Error ?
             <ModalWrapper>
                 <Modal>
