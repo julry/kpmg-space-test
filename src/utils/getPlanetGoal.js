@@ -6,5 +6,7 @@ export const getPlanetGoal = (id) => {
             return 'second_planet'
         case "3":
             return 'third_planet'
+        default:
+            break;
     }
 }

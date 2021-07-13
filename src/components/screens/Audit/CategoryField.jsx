@@ -54,14 +54,14 @@ export const CategoryField = (props) => {
     const {title, ind, onDragEnd, shownSubjects, category} = props;
     const [isErr, setIsErr] = useState(false);
     const [shownStyles, setShownStyles] = useState([]);
-    const [{ isOver, canDrop }, drop] = useDrop({
+    const [{ isOver }, drop] = useDrop({
         accept: 'subjectAudit',
         collect: (monitor) => ({
             isOver: monitor.isOver(),
             canDrop: monitor.canDrop(),
         }),
         drop: (item) => {
-            if (item.category === category) {
+            if (item.category === category&&isOver) {
                 setShownStyles(styles=> [...styles, {
                     left: getRandomNumber(0,40) + "%",
                     top: getRandomNumber(0,40) + "%",

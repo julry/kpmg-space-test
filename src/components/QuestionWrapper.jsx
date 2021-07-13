@@ -262,7 +262,7 @@ export const QuestionWrapper = (props) => {
             { !question ? <StartTestBtn/>
             : <AttemptWrapper>
                     {planet.attempts > 1 && [...Array(planet.attempts).keys()].map((attempt, id) =>
-                        <Attempt style={(id + 1) <= currentAttempt ? {background: '#FF1F00'} : {}}/>
+                        <Attempt key={attempt} style={(id + 1) <= currentAttempt ? {background: '#FF1F00'} : {}}/>
                     )}
                 </AttemptWrapper>
             }

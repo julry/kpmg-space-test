@@ -11,7 +11,6 @@ import {Helmet} from "./components/shared/svg/Helmet";
 import {FoodTubes} from "./components/shared/svg/FoodTubes";
 import {Photo} from "./components/shared/svg/Photo";
 import {Paper} from "./components/shared/svg/Paper";
-import {Pen} from "./components/shared/svg/Pen";
 
 export const CATEGORIES_TITLE = {
     home: 'быт\nкосмонавта',
@@ -21,10 +20,10 @@ export const CATEGORIES_TITLE = {
 }
 
 export const CATEGORIES_SUBJECTS = {
-    home: ['balloon', 'helmet', 'FoodTubes'],
-    work: ['Laptop', 'Paper', 'Pen'],
-    habit: ['toy', 'dvd', 'book'],
-    memory: ['Photo', 'pic', 'letter'],
+    home: ['helmet', 'FoodTubes'],
+    work: ['Laptop', 'Paper'],
+    habit: ['toy', 'book'],
+    memory: ['Photo', 'letter'],
 }
 
 export const planets = [
