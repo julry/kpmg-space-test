@@ -8,6 +8,7 @@ import {StartBtn} from "../../shared/StartBtn";
 import {PlanetName} from "../../shared/PlanetName";
 import {decorAnimation, fade} from "../../../utils/keyframes";
 import {IntroDecor} from "../../shared/svg/IntroDecor";
+import {reachMetrikaGoal} from "../../../utils/reachMetrikaGoal";
 
 const Wrapper = styled.div`
   padding: 3.0843% 8.6957vw;
@@ -106,6 +107,11 @@ export const Intro2 = () => {
     const { setNext } = useContext(ProgressContext);
     const [stage, setStage] = useState(1);
 
+    const onStartTest = () => {
+        reachMetrikaGoal('start');
+        setNext()
+    }
+
     return <Wrapper>
         <DecorWrapper>
             {stage ===1 ? <IntroDecorStyled /> : <IntroDecorAnimated />}
@@ -142,7 +148,7 @@ export const Intro2 = () => {
                 Тем более, что космос с греческого так и переводится. Поможешь? :)
             </Description>}
         </AuditWrapper>
-        <NextBtn onClick={()=> stage < STAGE_COUNT ? setStage(stage => stage + 1) : setNext()} />
+        <NextBtn onClick={()=> stage < STAGE_COUNT ? setStage(stage => stage + 1) : onStartTest()} />
     </Wrapper>
 }
 
