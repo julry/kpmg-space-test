@@ -5,7 +5,7 @@ import {Storios} from "./components/shared/svg/Storios";
 import {Audit} from "./components/shared/svg/Audit";
 import {Toy} from "./components/shared/svg/Toy";
 import {Letter} from "./components/shared/svg/Letter";
-import {Headphones} from "./components/shared/svg/Headphones";
+import {Book} from "./components/shared/svg/Book";
 import {Laptop} from "./components/shared/svg/Laptop";
 import {Helmet} from "./components/shared/svg/Helmet";
 import {FoodTubes} from "./components/shared/svg/FoodTubes";
@@ -23,7 +23,7 @@ export const CATEGORIES_TITLE = {
 export const CATEGORIES_SUBJECTS = {
     home: ['balloon', 'helmet', 'FoodTubes'],
     work: ['Laptop', 'Paper', 'Pen'],
-    habit: ['toy', 'dvd', 'headphones'],
+    habit: ['toy', 'dvd', 'book'],
     memory: ['Photo', 'pic', 'letter'],
 }
 
@@ -290,7 +290,7 @@ export const planets = [
                     svg: (props)=><Toy {...props}/>
                 },
                 {
-                    id: 'headphones',
+                    id: 'book',
                     styles:
                         {
                             bottom: '42.7824%',
@@ -300,7 +300,7 @@ export const planets = [
                             transform: 'rotate(-90deg)'
                         }
                     ,
-                    svg: (props)=><Headphones {...props}/>
+                    svg: (props)=><Book {...props}/>
                 },
 
             ],

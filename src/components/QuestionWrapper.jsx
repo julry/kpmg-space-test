@@ -8,6 +8,8 @@ import {Background, Image} from "./shared/Background";
 import {StartBtn} from "./shared/StartBtn";
 import {getLeftProperty} from "../utils/getLeftProperty";
 import {shuffle} from "../utils/shuffle";
+import {reachMetrikaGoal} from "../utils/reachMetrikaGoal";
+import {getPlanetGoal} from "../utils/getPlanetGoal";
 
 const Wrapper = styled.div`
     display: grid;
@@ -189,6 +191,7 @@ export const QuestionWrapper = (props) => {
                 setNext();
                 if (+question.id === planet.questions.length) {
                     setCurrentAttempt(0);
+                    reachMetrikaGoal(getPlanetGoal(planet.id))
                 }
             }, 1500);
         }

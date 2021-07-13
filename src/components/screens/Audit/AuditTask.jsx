@@ -22,6 +22,8 @@ import {TurnLeft} from "../../shared/svg/TurnLeft";
 import {TurnRight} from "../../shared/svg/TurnRight";
 import {ZoomOut} from "../../shared/svg/ZoomOut";
 import {ZoomIn} from "../../shared/svg/ZoomIn";
+import {reachMetrikaGoal} from "../../../utils/reachMetrikaGoal";
+import {getPlanetGoal} from "../../../utils/getPlanetGoal";
 
 const Wrapper = styled.div`
     display: grid;
@@ -228,6 +230,7 @@ export const AuditTask = () => {
         setChosenSubjects(chosenSubjects => [...chosenSubjects, subject]);
 
         if (chosenSubjects.length + 1 === startSubjects.length) {
+            reachMetrikaGoal(getPlanetGoal('3'));
             setTimeout(()=> setNext(), 500);
         }
 

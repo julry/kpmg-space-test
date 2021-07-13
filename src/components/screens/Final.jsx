@@ -4,6 +4,7 @@ import {LogoStyled} from "../shared/LogoStyled";
 import {Planet} from "../shared/PlanetName";
 import {Background, Image} from "../shared/Background";
 import {astronaut, introBg} from "../../constants/images";
+import {getShareParams} from "../../utils/getShareParams";
 
 const Wrapper = styled.div`
     padding: 3.8043% 3.6971% 0 8.5956%;
@@ -56,7 +57,7 @@ const Blackout6 = styled(Blackout)`
   background: rgba(0, 0, 0, 0.3);
 `
 
-const Link = styled.p`
+const Link = styled.a`
     position: fixed;
     bottom: 4.8913%;
     font-size: 16px;
@@ -114,7 +115,7 @@ export const Final = () => {
         </Background>
         <LogoStyled />
         <Title>Вау, да ты мастер!</Title>
-        <Text>{'Тебе удалось продемонстрировать \nсвой профессионализм жителям \nпланет, а инвентаризация \nкосмонавтов прошла безукоризненно! \nОсталось только поделиться своим достижением на страничке в ВК, чтобы каждый знал, кто здесь настоящий исследователь!\n\nМежду репостнувшими КПМГ разыграет призы :)'}</Text>
-        <Link>поделиться результатом</Link>
+        <Text>{'Тебе удалось продемонстрировать \nсвой профессионализм жителям \nпланет, а инвентаризация \nкосмонавтов прошла безукоризненно! \nОсталось только поделиться своим достижением на страничке в ВК, чтобы каждый знал, кто здесь настоящий исследователь!\n\nМежду репостнувшими КПМГ разыграет призы :)\nНе забудь добавить в публикацию хэштег #аудиттыпростокосмос, чтобы при розыгрыше твой пост не потерялся!'}</Text>
+        <Link target={'_blank'} href={getShareParams()}>поделиться результатом</Link>
     </Wrapper>
 }
