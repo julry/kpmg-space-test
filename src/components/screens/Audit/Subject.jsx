@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styled from "styled-components";
-import {useDrag, DragPreviewImage} from "react-dnd";
+import {useDrag} from "react-dnd";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -12,13 +12,12 @@ export const Subject = (props) => {
     const [scale, setScale] = useState(1);
     const [isDragging, setIsDragging] = useState(false);
 
-    const [{ opacity }, drag, dragPreview] = useDrag({
+    const [{ opacity }, drag] = useDrag({
         type: "subjectAudit",
         item: () => {
             return isDragging ? { category, id } : null;
         },
         end: (item, monitor) => {
-            const dropResult = monitor.getDropResult();
             onEnd();
         },
         collect: monitor => ({
@@ -38,6 +37,11 @@ export const Subject = (props) => {
         setIsDragging(false);
         onDragEnd(e);
     }
+
+    useEffect(() => {
+        let isMounted = true;
+        if (isMounted) return () => { isMounted = false };
+    }, []);
 
     return (
         <Wrapper ref={drag} onTouchStart={onStart} onMouseDown={onStart} style={{...style, opacity, transform:`scale(${scale})`}}>
